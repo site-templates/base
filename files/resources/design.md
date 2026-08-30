@@ -46,9 +46,11 @@ bright specifically so it can carry small text and be its own underline.
 - **Display** — Space Grotesk 500/600, for the name, page titles and every
   row title. Nothing else.
 - **Body** — Inter 400/500, with `cv02 cv03 cv04 cv11 ss01` on.
-- Three display steps, defined once in `site.css`: `.display-name`
-  (1.75→2.25rem), `.display-page` (2→2.75rem), `.display-row` (1.0625rem).
-  Use the class, not a stack of `text-*` breakpoints.
+- Two display steps and a row size, defined once in `site.css`:
+  `.display-page` (2→2.75rem) and `.display-row` (1.0625rem). Use the class,
+  not a stack of `text-*` breakpoints. `.display-page` is the biggest thing
+  on a page — the name on the home page, the title everywhere else — and
+  there is only ever one of it per page.
 - **The headings are deliberately not large.** The column is 40rem wide; a
   4rem headline inside it reads as a mistake rather than as confidence.
 - Section labels are small, muted, sentence case, and they *are* the heading —
@@ -100,8 +102,9 @@ should read as though it was written after the work, not before it.
 
 ## Anti-patterns
 
-- A hero headline. The person is the headline; the avatar and the name do
-  that job.
+- A hero headline. The person is the headline; the name does that job.
+- A second portrait. The header carries the only one on the site — a face in
+  the header and a face in the hero reads as a mistake, not as identity.
 - A second accent colour, or the green used decoratively.
 - Cards, shadows, or gradients. There are none, anywhere.
 - Centre alignment. Everything on this site is left aligned.

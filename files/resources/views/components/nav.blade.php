@@ -2,7 +2,7 @@
     'links' => [],
     'current' => '/',
     'avatar' => '/images/avatar.jpg',
-    'avatarAlt' => 'Rowan Ellis',
+    'avatarAlt' => 'Rowan Emerson',
 ])
 {{-- The header is the wordmark and three links, and it scrolls away with the
      page — nothing here is sticky, and nothing here needs JavaScript. Links

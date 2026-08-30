@@ -53,17 +53,14 @@
 }
 
 /*
-    The display scale. Three steps, fluid between the phone and the desktop
-    so no heading ever needs a breakpoint. Nothing here is enormous on
-    purpose — the column is 40rem wide, and a 5rem headline inside it reads
-    as a mistake rather than as confidence.
-*/
-.display-name {
-    font-size: clamp(1.75rem, 5vw, 2.25rem);
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-}
+    The display scale. Two steps and a row size, fluid between the phone and
+    the desktop so no heading ever needs a breakpoint. Nothing here is
+    enormous on purpose — the column is 40rem wide, and a 5rem headline
+    inside it reads as a mistake rather than as confidence.
 
+    .display-page is the biggest thing on any page: the name on the home
+    page, the title everywhere else. There is only ever one per page.
+*/
 .display-page {
     font-size: clamp(2rem, 6vw, 2.75rem);
     line-height: 1.08;

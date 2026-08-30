@@ -1,14 +1,14 @@
 {
-    "name": "Rowan Ellis",
+    "name": "Rowan Emerson",
     "nav_links": [
         { "text": "Home", "url": "/" },
         { "text": "Writing", "url": "/writing" },
         { "text": "About", "url": "/about" }
     ],
     "social_links": [
-        { "label": "Email", "handle": "rowan@rowanellis.com", "url": "mailto:rowan@rowanellis.com", "platform": "email" },
-        { "label": "X", "handle": "@rowanellis", "url": "https://x.com", "platform": "x" },
-        { "label": "GitHub", "handle": "rowanellis", "url": "https://github.com", "platform": "github" },
+        { "label": "Email", "handle": "rowan@rowanemerson.com", "url": "mailto:rowan@rowanemerson.com", "platform": "email" },
+        { "label": "X", "handle": "@rowanemerson", "url": "https://x.com", "platform": "x" },
+        { "label": "GitHub", "handle": "rowanemerson", "url": "https://github.com", "platform": "github" },
         { "label": "Bluesky", "handle": "@rowan.bsky.social", "url": "https://bsky.app", "platform": "bluesky" }
     ],
     "footer_links": [

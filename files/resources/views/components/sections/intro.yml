@@ -1,20 +1,12 @@
 # The visual editor's contract for sections/intro.blade.php.
+# There is no photograph here on purpose — the header carries the only one.
 title: Introduction
-description: The avatar, the name, the bio and the availability line
+description: The name, the bio and the availability line
 fields:
-    avatar:
-        type: image
-        label: Photograph
-        description: Square works best — it is masked to a circle here.
-        default: "/images/avatar.jpg"
-    avatarAlt:
-        type: text
-        label: Photograph alt text
-        default: "Rowan Ellis"
     name:
         type: text
         label: Name
-        default: "Rowan Ellis"
+        default: "Rowan Emerson"
     bio:
         type: textarea
         label: Bio
@@ -32,4 +24,4 @@ fields:
     statusHref:
         type: url
         label: Availability link
-        default: "mailto:rowan@rowanellis.com"
+        default: "mailto:rowan@rowanemerson.com"
