@@ -1,0 +1,32 @@
+# The visual editor's contract for sections/newsletter.blade.php.
+# The form posts a single `email` field to whatever address you put in Form
+# action — Buttondown, Kit, Mailchimp and Beehiiv all accept that shape.
+title: Newsletter
+description: The subscribe panel
+fields:
+    heading:
+        type: text
+        label: Heading
+        default: "Get new posts by email"
+    intro:
+        type: textarea
+        label: Intro
+        rows: 2
+        default: "One email when something new goes up. Usually once a month, never more than twice."
+    action:
+        type: url
+        label: Form action
+        description: The subscribe URL your email provider gives you.
+        default: "https://example.com/subscribe"
+    placeholder:
+        type: text
+        label: Field placeholder
+        default: "you@example.com"
+    buttonText:
+        type: text
+        label: Button text
+        default: "Subscribe"
+    note:
+        type: text
+        label: Small print
+        default: "No spam. Unsubscribe in one click."

@@ -1,0 +1,14 @@
+# The visual editor's contract for sections/post-body.blade.php.
+# On a post page this is bound to that post's `content` field, so edit the post
+# in resources/data/collections/posts.json rather than here.
+title: Post body
+description: The body of a post
+fields:
+    content:
+        # Bound to the post's own `content` column on a post page, which IS a
+        # rich text editor; standing alone this is the raw HTML behind it.
+        type: textarea
+        label: Body
+        description: HTML. Edit the post in the Content editor rather than here.
+        rows: 12
+        default: "<p>Write here.</p>"

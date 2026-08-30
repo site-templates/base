@@ -1,0 +1,31 @@
+# The visual editor's contract for sections/post-header.blade.php.
+# On a post page every field except the back link is bound to that post's row
+# in resources/data/collections/posts.json.
+title: Post header
+description: The way back, the title, the standfirst and the date
+fields:
+    title:
+        type: text
+        label: Title
+        default: "A post"
+    excerpt:
+        type: textarea
+        label: Standfirst
+        rows: 3
+        default: ""
+    dateFormatted:
+        type: text
+        label: Date
+        default: ""
+    readTime:
+        type: text
+        label: Reading time
+        default: ""
+    backText:
+        type: text
+        label: Back link text
+        default: "Writing"
+    backHref:
+        type: url
+        label: Back link
+        default: "/writing"

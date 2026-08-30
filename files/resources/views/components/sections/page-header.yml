@@ -1,0 +1,17 @@
+# The visual editor's contract for sections/page-header.blade.php.
+title: Page header
+description: The title block at the top of a page
+fields:
+    heading:
+        type: text
+        label: Heading
+        default: "Writing"
+    showIntro:
+        type: toggle
+        label: Show the intro line
+        default: "1"
+    intro:
+        type: textarea
+        label: Intro
+        rows: 3
+        default: ""

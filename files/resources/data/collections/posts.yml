@@ -1,0 +1,13 @@
+# Column types for resources/data/collections/posts.json.
+# One row per post. `content` is the body of the post, so it opens as a rich
+# text editor rather than a single-line field; `link` must stay in step with
+# `slug`, since that is the URL the post is served at.
+fields:
+    title: text
+    slug: text
+    link: url
+    date: text
+    dateFormatted: text
+    readTime: text
+    excerpt: textarea
+    content: richtext

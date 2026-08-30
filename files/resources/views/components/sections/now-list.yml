@@ -1,0 +1,24 @@
+# The visual editor's contract for sections/now-list.blade.php.
+# The rows come from resources/data/collections/now.json.
+title: Right now
+description: A short snapshot of what you are doing at the moment
+fields:
+    label:
+        type: text
+        label: Section label
+        default: "Right now"
+    items:
+        type: repeater
+        label: Lines
+        add_button_label: "Add line"
+        item_label: label
+        source: now
+        sub_fields:
+            label:
+                type: text
+                label: Label
+                default: "Building"
+            value:
+                type: text
+                label: Detail
+                default: "Something small."

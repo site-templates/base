@@ -1,0 +1,42 @@
+# The visual editor's contract for sections/writing-rows.blade.php.
+# The posts come from resources/data/collections/posts.json — add one there and
+# it appears here, in the archive on /writing, and at its own URL.
+title: Writing
+description: The list of posts, with an optional excerpt under each one
+fields:
+    showLabel:
+        type: toggle
+        label: Show the section label
+        default: "1"
+    label:
+        type: text
+        label: Section label
+        default: "Writing"
+    showExcerpt:
+        type: toggle
+        label: Show the excerpt under each title
+        description: Off for the short list on the home page, on for the archive.
+        default: "0"
+    showLink:
+        type: toggle
+        label: Show the link below the list
+        default: "1"
+    linkText:
+        type: text
+        label: Link text
+        default: "All writing"
+    linkHref:
+        type: url
+        label: Link
+        default: "/writing"
+    excludeSlug:
+        type: text
+        label: Hide the post with this slug
+        description: Set by a post page to its own slug, so the list never links back to itself.
+        default: ""
+    items:
+        type: repeater
+        label: Posts
+        add_button_label: "Add post"
+        item_label: title
+        source: posts

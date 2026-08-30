@@ -1,0 +1,18 @@
+{
+    "name": "Base",
+    "dialect": "blade",
+    "description": "A one-column personal site: an identity block, a list of things you made, a list of things you wrote, and nothing else.",
+    "icon": "▫️",
+    "repo": "https://github.com/site-templates/base",
+    "order": 33,
+    "category": "blog",
+    "theme": "light",
+    "accent": "#0f7a5a",
+    "pages": [
+        "Home",
+        "Writing",
+        "Post",
+        "About",
+        "404"
+    ]
+}

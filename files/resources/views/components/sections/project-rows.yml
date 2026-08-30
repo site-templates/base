@@ -1,0 +1,35 @@
+# The visual editor's contract for sections/project-rows.blade.php.
+# The rows come from resources/data/collections/projects.json — add one there
+# and it appears in the list.
+title: Projects
+description: The list of things you have made
+fields:
+    label:
+        type: text
+        label: Section label
+        default: "Projects"
+    items:
+        type: repeater
+        label: Projects
+        add_button_label: "Add project"
+        item_label: name
+        source: projects
+        sub_fields:
+            name:
+                type: text
+                label: Name
+                default: "New project"
+            description:
+                type: text
+                label: Description
+                description: One line. What it is, not why it matters.
+                default: "What it does, in one line."
+            url:
+                type: url
+                label: Link
+                default: "https://example.com"
+            date:
+                type: text
+                label: Date
+                description: Written the way it should read — 04.2026, 2024, anything.
+                default: "01.2026"

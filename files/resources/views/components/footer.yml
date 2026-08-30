@@ -1,0 +1,25 @@
+# The visual editor's contract for footer.blade.php.
+# The links come from resources/data/site.json (footer_links).
+title: Footer
+description: The closing hairline, the links and the small print
+fields:
+    colophon:
+        type: textarea
+        label: Small print
+        rows: 2
+        default: "Set in Space Grotesk and Inter. No cookies, no trackers, no JavaScript."
+    links:
+        type: repeater
+        label: Footer links
+        add_button_label: "Add link"
+        item_label: text
+        source: site.footer_links
+        sub_fields:
+            text:
+                type: text
+                label: Label
+                default: "New link"
+            url:
+                type: url
+                label: Link
+                default: "/"

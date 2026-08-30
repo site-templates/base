@@ -1,0 +1,6 @@
+# Column types for resources/data/collections/now.json — the short "what I am
+# doing at the moment" list on the about page. Keep it to four or five rows;
+# it is a snapshot, not a CV.
+fields:
+    label: text
+    value: text

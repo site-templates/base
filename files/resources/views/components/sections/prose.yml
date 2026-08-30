@@ -1,0 +1,21 @@
+# The visual editor's contract for sections/prose.blade.php.
+title: Text block
+description: A labelled block of rich text
+fields:
+    showLabel:
+        type: toggle
+        label: Show the section label
+        default: "1"
+    label:
+        type: text
+        label: Section label
+        default: "About"
+    body:
+        # `richtext` is a collection-column and repeater sub-field type only —
+        # a top-level section field declaring it degrades silently to a plain
+        # textarea, so this says what it actually is. The value is HTML.
+        type: textarea
+        label: Text
+        description: HTML. Paragraphs, headings, lists, links and quotes are all styled.
+        rows: 12
+        default: "<p>Write here.</p>"

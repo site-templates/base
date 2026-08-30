@@ -1,0 +1,401 @@
+/*
+    Base — the whole design system in one file.
+
+    Loaded straight after Tailwind by the layout, so everything here reaches
+    every page. The @theme block is the ONLY place a real colour, font or
+    easing value appears in this template: the tokens become real utilities
+    (bg-canvas, text-ink, text-muted, border-line, bg-accent, font-display)
+    and the markup never writes a hex again. Retune the palette here and the
+    entire site moves with it.
+
+    There is no JavaScript on this site. Every interaction below is CSS.
+*/
+
+@theme {
+    /*
+        Two neutrals and nothing else. Canvas is the paper; surface is the
+        single recessed plane — the row hover plate and the one well at the
+        bottom of the page. Everything else separates with air.
+    */
+    --color-canvas: #ffffff;
+    --color-surface: #f4f5f6;
+
+    /*
+        Type in two tiers. Muted is deliberately darker than the reference
+        greys most personal sites use: it carries dates, descriptions and
+        whole paragraphs, so it has to clear AA on both neutrals (5.9:1 on
+        canvas, 5.6:1 on surface).
+    */
+    --color-ink: #15171c;
+    --color-muted: #61656e;
+
+    /* The single hairline weight in the design. */
+    --color-line: #e5e7ea;
+
+    /*
+        The green. It appears in exactly four places: the availability dot,
+        the rule that fills across a row on hover, the underline under a
+        link in prose, and the subscribe button. Nowhere else. At 5.3:1 on
+        white it is dark enough to carry small text and to be its own
+        underline, which is why it is this deep rather than a bright signal
+        green.
+    */
+    --color-accent: #0f7a5a;
+    --color-accent-deep: #0b6248;
+    --color-accent-ink: #ffffff;
+
+    --font-display: "Space Grotesk", "Helvetica Neue", sans-serif;
+    --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-sans--font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01";
+
+    /* One easing for everything that moves: quick out, long soft settle. */
+    --ease-out-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/*
+    The display scale. Three steps, fluid between the phone and the desktop
+    so no heading ever needs a breakpoint. Nothing here is enormous on
+    purpose — the column is 40rem wide, and a 5rem headline inside it reads
+    as a mistake rather than as confidence.
+*/
+.display-name {
+    font-size: clamp(1.75rem, 5vw, 2.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+}
+
+.display-page {
+    font-size: clamp(2rem, 6vw, 2.75rem);
+    line-height: 1.08;
+    letter-spacing: -0.034em;
+}
+
+.display-row {
+    font-size: 1.0625rem;
+    line-height: 1.4;
+    letter-spacing: -0.012em;
+}
+
+/*
+    THE ROW — the signature of this template.
+
+    Every list on the site is the same object: a title on the left, a date on
+    the right, and a hairline running between them to carry your eye across.
+    Hovering fills that hairline with green from the left, lifts the date to
+    full ink, and slides a soft plate out past both edges of the column. It
+    is the only interaction on the site, so it had to be worth repeating.
+
+    :focus-within mirrors every hover state — the row must feel the same when
+    you arrive at it with the keyboard.
+*/
+.row-link {
+    /* The plate bleeds three units past the text column on both sides. */
+    margin-inline: --spacing(-3);
+    padding-inline: --spacing(3);
+    border-radius: var(--radius-xl);
+    transition: background-color 0.2s var(--ease-out-soft);
+}
+
+/*
+    Every hover rule below is hand-wrapped in `@media (hover: hover)` so a
+    touch device never gets a state it cannot leave. Do NOT reach for
+    Tailwind's `@variant hover` here: at the top level of a stylesheet it
+    compiles to `:scope:hover .selector:hover`, which matches nothing — the
+    rule survives the build, the interaction quietly does not.
+*/
+
+@media (hover: hover) {
+    .row-link:hover {
+        background-color: var(--color-surface);
+    }
+}
+
+.row-link:focus-within {
+    background-color: var(--color-surface);
+}
+
+/* The leader. A hairline at rest; a green rule growing left to right on hover. */
+.leader {
+    position: relative;
+    min-width: --spacing(8);
+    background-color: var(--color-line);
+}
+
+.leader::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-accent);
+    scale: 0 1;
+    transform-origin: left;
+    transition: scale 0.45s var(--ease-out-soft);
+}
+
+@media (hover: hover) {
+    .row-link:hover .leader::after {
+        scale: 1 1;
+    }
+}
+
+.row-link:focus-within .leader::after {
+    scale: 1 1;
+}
+
+/* The date sits back until the row is live, then steps up to full ink. */
+.row-meta {
+    transition: color 0.2s var(--ease-out-soft);
+}
+
+@media (hover: hover) {
+    .row-link:hover .row-meta {
+        color: var(--color-ink);
+    }
+}
+
+.row-link:focus-within .row-meta {
+    color: var(--color-ink);
+}
+
+/* Projects leave the site, so they get an arrow that slides out of the title. */
+.row-arrow {
+    opacity: 0;
+    translate: --spacing(-1) --spacing(1);
+    transition:
+        opacity 0.25s var(--ease-out-soft),
+        translate 0.25s var(--ease-out-soft);
+}
+
+@media (hover: hover) {
+    .row-link:hover .row-arrow {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+.row-link:focus-within .row-arrow {
+    opacity: 1;
+    translate: 0 0;
+}
+
+/* A plain text link's arrow is always there; it just steps right on hover. */
+.link-arrow {
+    transition: translate 0.25s var(--ease-out-soft);
+}
+
+@media (hover: hover) {
+    .row-link:hover .link-arrow {
+        translate: --spacing(0.5) 0;
+    }
+}
+
+.row-link:focus-within .link-arrow {
+    translate: --spacing(0.5) 0;
+}
+
+/* The same arrow pointing the other way, on the way back out of a post. */
+.link-arrow-back {
+    transition: translate 0.25s var(--ease-out-soft);
+}
+
+@media (hover: hover) {
+    .row-link:hover .link-arrow-back {
+        translate: --spacing(-0.5) 0;
+    }
+}
+
+.row-link:focus-within .link-arrow-back {
+    translate: --spacing(-0.5) 0;
+}
+
+/*
+    The availability dot. A quiet pulse — one ring easing outwards every four
+    seconds — so the page has exactly one thing that moves on its own.
+*/
+.status-dot {
+    position: relative;
+}
+
+.status-dot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    animation: status-pulse 4s var(--ease-out-soft) infinite;
+}
+
+@keyframes status-pulse {
+    0% {
+        scale: 1;
+        opacity: 0.5;
+    }
+    45%,
+    100% {
+        scale: 2.6;
+        opacity: 0;
+    }
+}
+
+/*
+    Body copy that arrives as raw HTML — the about block and every post — so
+    it cannot carry utility classes. This is the whole prose contract.
+*/
+.prose > * + * {
+    margin-top: --spacing(5);
+}
+
+.prose p {
+    font-size: var(--text-base);
+    line-height: --spacing(7);
+    color: var(--color-muted);
+    text-wrap: pretty;
+}
+
+.prose h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin-top: --spacing(10);
+}
+
+.prose h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    line-height: 1.35;
+    letter-spacing: -0.016em;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin-top: --spacing(8);
+}
+
+/*
+    Links in prose are ink, not green — a paragraph with six green words in
+    it is a paragraph nobody finishes. The green lives in the underline, and
+    only steps up to the text on hover.
+*/
+.prose a {
+    color: var(--color-ink);
+    font-weight: 500;
+    text-decoration: underline;
+    /* Two pixels, not one: at a single pixel a green this deep is
+       indistinguishable from black, and the underline is the only place the
+       green appears in a body of text. */
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--color-accent);
+}
+
+@media (hover: hover) {
+    .prose a:hover {
+        color: var(--color-accent);
+    }
+}
+
+.prose a:focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
+    border-radius: var(--radius-xs);
+}
+
+.prose strong {
+    color: var(--color-ink);
+    font-weight: 600;
+}
+
+.prose ul,
+.prose ol {
+    padding-left: --spacing(5);
+    color: var(--color-muted);
+}
+
+.prose ul {
+    list-style-type: disc;
+}
+
+.prose ol {
+    list-style-type: decimal;
+}
+
+.prose li {
+    font-size: var(--text-base);
+    line-height: --spacing(7);
+    margin-top: --spacing(2);
+}
+
+.prose li::marker {
+    color: var(--color-line);
+}
+
+.prose blockquote {
+    padding-left: --spacing(5);
+    border-left: 1px solid var(--color-line);
+    color: var(--color-ink);
+}
+
+.prose blockquote p {
+    color: var(--color-ink);
+}
+
+.prose code {
+    font-size: var(--text-sm);
+    background-color: var(--color-surface);
+    border-radius: var(--radius-sm);
+    padding-inline: --spacing(1.5);
+    color: var(--color-ink);
+}
+
+.prose pre {
+    font-size: var(--text-sm);
+    line-height: --spacing(6);
+    background-color: var(--color-surface);
+    border-radius: var(--radius-xl);
+    padding: --spacing(5);
+    overflow-x: auto;
+    color: var(--color-ink);
+}
+
+.prose pre code {
+    background-color: transparent;
+    padding-inline: 0;
+}
+
+.prose img {
+    width: 100%;
+    border-radius: var(--radius-xl);
+}
+
+.prose figcaption {
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    margin-top: --spacing(3);
+}
+
+.prose hr {
+    border-color: var(--color-line);
+    margin-block: --spacing(10);
+}
+
+/*
+    Reduced motion stops the dot and drops every transition. Nothing on this
+    site is ever hidden to begin with, so there is nothing that could be left
+    stuck invisible — the leader simply appears at full width instead of
+    growing into place.
+*/
+@media (prefers-reduced-motion: reduce) {
+    .status-dot::after {
+        animation: none;
+        opacity: 0;
+    }
+
+    .row-link,
+    .leader::after,
+    .row-meta,
+    .row-arrow,
+    .link-arrow,
+    .link-arrow-back {
+        transition: none;
+    }
+}

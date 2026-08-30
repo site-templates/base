@@ -1,0 +1,39 @@
+# The visual editor's contract for sections/elsewhere.blade.php.
+# The rows come from resources/data/site.json (social_links), so they stay in
+# step with the footer.
+title: Elsewhere
+description: Where to find you — email and the accounts worth listing
+fields:
+    label:
+        type: text
+        label: Section label
+        default: "Elsewhere"
+    items:
+        type: repeater
+        label: Accounts
+        add_button_label: "Add account"
+        item_label: label
+        source: site.social_links
+        sub_fields:
+            label:
+                type: text
+                label: Name
+                default: "New link"
+            handle:
+                type: text
+                label: Handle
+                description: Shown on the right of the row.
+                default: ""
+            url:
+                type: url
+                label: Link
+                default: "https://example.com"
+            platform:
+                type: select
+                label: Icon
+                default: "email"
+                options:
+                    email: Email
+                    x: X
+                    github: GitHub
+                    bluesky: Bluesky

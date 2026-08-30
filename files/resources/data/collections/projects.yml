@@ -1,0 +1,9 @@
+# Column types for resources/data/collections/projects.json.
+# Every project on the home page is one row in that file. Add a row and it
+# appears in the list; the date is written the way it should read, so any
+# format works.
+fields:
+    name: text
+    description: text
+    url: url
+    date: text

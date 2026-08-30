@@ -1,0 +1,35 @@
+# The visual editor's contract for nav.blade.php.
+# The links come from resources/data/site.json (nav_links), so editing them
+# here changes the header on every page at once.
+title: Header
+description: The avatar wordmark and the page links
+fields:
+    avatar:
+        type: image
+        label: Avatar
+        description: The same picture as the tab icon and the home page.
+        default: "/images/avatar.jpg"
+    avatarAlt:
+        type: text
+        label: Avatar alt text
+        default: "Rowan Ellis"
+    current:
+        type: text
+        label: Current page path
+        description: Set by each page — the matching link gets the active pill.
+        default: "/"
+    links:
+        type: repeater
+        label: Header links
+        add_button_label: "Add link"
+        item_label: text
+        source: site.nav_links
+        sub_fields:
+            text:
+                type: text
+                label: Label
+                default: "New link"
+            url:
+                type: url
+                label: Link
+                default: "/"

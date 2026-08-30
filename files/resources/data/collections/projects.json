@@ -1,0 +1,44 @@
+[
+    {
+        "name": "Fieldnote",
+        "description": "Turns a recorded meeting into the three decisions you actually made.",
+        "url": "https://example.com/fieldnote",
+        "date": "04.2026"
+    },
+    {
+        "name": "Halfmoon",
+        "description": "Uptime monitoring that only wakes you when it is genuinely your problem.",
+        "url": "https://example.com/halfmoon",
+        "date": "11.2025"
+    },
+    {
+        "name": "Cutlass",
+        "description": "A small CLI that ships a static site to any host in one command.",
+        "url": "https://example.com/cutlass",
+        "date": "06.2025"
+    },
+    {
+        "name": "Ledgerline",
+        "description": "Plain-text bookkeeping for people who run a company of one.",
+        "url": "https://example.com/ledgerline",
+        "date": "01.2025"
+    },
+    {
+        "name": "Roster",
+        "description": "Shift scheduling for small clinics. Built over three weekends.",
+        "url": "https://example.com/roster",
+        "date": "08.2024"
+    },
+    {
+        "name": "Slate Reader",
+        "description": "An RSS reader with no algorithm, no counts and no red badges.",
+        "url": "https://example.com/slate",
+        "date": "02.2024"
+    },
+    {
+        "name": "Typeset",
+        "description": "Checks a web page for the typographic mistakes print caught decades ago.",
+        "url": "https://example.com/typeset",
+        "date": "05.2023"
+    }
+]

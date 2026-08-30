@@ -1,0 +1,35 @@
+# The visual editor's contract for sections/intro.blade.php.
+title: Introduction
+description: The avatar, the name, the bio and the availability line
+fields:
+    avatar:
+        type: image
+        label: Photograph
+        description: Square works best — it is masked to a circle here.
+        default: "/images/avatar.jpg"
+    avatarAlt:
+        type: text
+        label: Photograph alt text
+        default: "Rowan Ellis"
+    name:
+        type: text
+        label: Name
+        default: "Rowan Ellis"
+    bio:
+        type: textarea
+        label: Bio
+        description: Two lines. Who you are, where you are, what you write about.
+        rows: 3
+        default: "Independent developer in Lisbon, building small software products on my own. Writing about craft, shipping, and the parts of the job nobody demos."
+    showStatus:
+        type: toggle
+        label: Show the availability line
+        default: "1"
+    status:
+        type: text
+        label: Availability
+        default: "Taking on one project this autumn"
+    statusHref:
+        type: url
+        label: Availability link
+        default: "mailto:rowan@rowanellis.com"
