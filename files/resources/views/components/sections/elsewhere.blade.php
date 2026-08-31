@@ -13,7 +13,7 @@
     <ul role="list" class="mt-5 grid gap-x-10 sm:mt-6 sm:grid-cols-2">
         @foreach ($items as $item)
         <li>
-            <a href="{{ $item->url }}" class="row-link flex items-center gap-3 py-3">
+            <a href="{{ $item->url }}" target="_blank" rel="noopener" class="row-link flex items-center gap-3 py-3">
                 <svg viewBox="0 0 16 16" class="size-4 shrink-0 fill-current text-muted" aria-hidden="true">
                     @if ($item->platform == 'email')
                     <path d="M1.5 3.75c0-.69.56-1.25 1.25-1.25h10.5c.69 0 1.25.56 1.25 1.25v8.5c0 .69-.56 1.25-1.25 1.25H2.75c-.69 0-1.25-.56-1.25-1.25Zm1.5.42v.34l5 3.13 5-3.13v-.34ZM13 5.92l-4.6 2.88a.75.75 0 0 1-.8 0L3 5.92v5.83h10Z"/>

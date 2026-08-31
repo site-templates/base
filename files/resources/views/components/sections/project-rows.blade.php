@@ -13,7 +13,7 @@
     <ul role="list" class="mt-5 flex flex-col sm:mt-6">
         @foreach ($items as $item)
         <li>
-            <a href="{{ $item->url }}" class="row-link flex flex-col gap-y-1 py-3">
+            <a href="{{ $item->url }}" target="_blank" rel="noopener" class="row-link flex flex-col gap-y-1 py-3">
                 <div class="flex items-baseline gap-x-3">
                     <h3 class="display-row flex items-center gap-1.5 font-display font-medium text-ink">
                         {{ $item->name }}
