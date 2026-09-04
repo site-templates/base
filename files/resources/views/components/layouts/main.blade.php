@@ -26,7 +26,7 @@
          the prose rules. There is no second stylesheet and no script. -->
     @vite(['resources/css/site.css'])
 </head>
-<body class="min-h-dvh bg-canvas font-sans text-ink antialiased">
+<body class="min-h-dvh bg-canvas font-sans text-ink antialiased" data-instant-navigation>
 <!--
     THESIS: a personal site is a reading surface with a short list of proof
     attached. It should open instantly, say who you are in one screen, and
