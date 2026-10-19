@@ -13,7 +13,7 @@
     <meta property="og:type" content="website">
 
     <!-- The avatar is the mark: same face in the tab, the header and the hero. -->
-    <link rel="icon" href="/favicon.png" type="image/png">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/favicon.png">
 
     <!-- Space Grotesk sets the name, the page titles and every row title.
